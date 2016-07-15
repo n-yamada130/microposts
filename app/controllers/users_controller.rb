@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  
   def show
     @user = User.find(params[:id])  
   end
@@ -18,10 +17,26 @@ class UsersController < ApplicationController
     end
   end
   
+  def edit
+    if !current_user
+      redirect_to login_path
+    end
+  end
+  
+  def update
+    if current_user.update(user_params)
+      flash[:success] = "Update Successful"
+      redirect_to current_user
+    else
+      flash[:danger] = "Update Failed"
+      render 'edit'
+    end
+  end
+  
   private
   
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :profile, :region, :password, :password_confirmation)
   end
   
 end
