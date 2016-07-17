@@ -1,0 +1,29 @@
+<h1>Settings</h1>
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <%= form_for(current_user, url: users_path) do |f| %>
+            <%= render 'shared/error_messages', object: f.object %>
+        
+            <%= f.label :name %>
+            <%= f.text_field :name, placeholder: "名前" %>
+            
+            <%= f.label :email %>
+            <%= f.text_field :email, placeholder: "メールアドレス" %>
+            
+            <%= f.label :profile %>
+            <%= f.text_area :profile, placeholder: "自己紹介" %>
+            
+            <%= f.label :region %>
+            <%= f.text_field :region, placeholder: "場所" %>
+            
+            <%= f.label :password %>
+            <%= f.password_field :password %>
+            
+            <%= f.label :password_confirmation, "Confirmation" %>
+            <%= f.password_field :password_confirmation %>
+            
+            <%= f.submit "Edit my account", class: "btn btn-large btn-primary", html: { method: "patch" } %>
+        <% end %>
+    </div>
+</div>
