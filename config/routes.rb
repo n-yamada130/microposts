@@ -7,8 +7,10 @@ Rails.application.routes.draw do
   
   get 'users/edit', to: 'users#edit'
   patch 'users/',   to: 'users#update'
+  get 'users/:id/followings', to: 'users#followings'
+  get 'users/:id/followers', to: 'users#followers'
+  
   resources :users, except: [:edit, :update]
   resources :microposts
-  
   resources :relationships, only: [:create, :destroy]
 end

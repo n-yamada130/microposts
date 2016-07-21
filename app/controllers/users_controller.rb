@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show]
+  before_action :set_user, only: [:show, :followings, :followers]
   # before_action :check_user, only: [:show]
   def show
-    @user = User.find(params[:id])
     @microposts = @user.microposts.order(created_at: :desc)
   end
   
@@ -31,6 +30,14 @@ class UsersController < ApplicationController
       flash[:danger] = "Update Failed"
       render 'edit'
     end
+  end
+  
+  def followings
+    @users = @user.following_users
+  end
+  
+  def followers
+    @users = @user.follower_users
   end
   
   private
