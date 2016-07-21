@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   patch 'users/',   to: 'users#update'
   resources :users, except: [:edit, :update]
   resources :microposts
+  
+  resources :relationships, only: [:create, :destroy]
 end
