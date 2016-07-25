@@ -15,6 +15,14 @@
                     <%= @user.region %>
                 </div>
             </div>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <%= link_to "Followings", :controller => "users", :action => "followings" %>
+                </li>
+                <li class="list-group-item">
+                    <%= link_to "Followers",  :controller => "users", :action => "followers" %>
+                </li>
+            </ul>
         </section>
     </aside>
     <div class="col-md-8">
