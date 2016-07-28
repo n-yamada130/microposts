@@ -1,0 +1,14 @@
+<h1>
+    <%= gravatar_for @user %>
+    <%= @user.name %>
+</h1>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2 class="panel-title">Profile</h2>
+    </div>
+    <div class="panel-body"><%= @user.profile %></div>
+    <div class="panel-footer">
+        <span class="glyphicon glyphicon-map-marker"></span>
+        <%= @user.region %>
+    </div>
+</div>

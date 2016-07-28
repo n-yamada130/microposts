@@ -1,31 +1,10 @@
 <div class="row">
     <aside class="col-md-4">
         <section class="user_info">
-            <h1>
-                <%= gravatar_for @user %>
-                <%= @user.name %>
-            </h1>
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h2 class="panel-title">Profile</h2>
-                </div>
-                <div class="panel-body"><%= @user.profile %></div>
-                <div class="panel-footer">
-                    <span class="glyphicon glyphicon-map-marker"></span>
-                    <%= @user.region %>
-                </div>
-            </div>
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <%= link_to "Followings", :controller => "users", :action => "followings" %>
-                </li>
-                <li class="list-group-item">
-                    <%= link_to "Followers",  :controller => "users", :action => "followers" %>
-                </li>
-                <li class="list-group-item">
-                    <%= link_to "Favorites",  :controller => "users", :action => "favorites" %>
-                </li>
-            </ul>
+            <%= render 'shared/user_profile', user: @user %>
+        </section>
+        <section class="user_menu">
+            <%= render 'shared/menu', user: @user %>
         </section>
     </aside>
     <div class="col-md-8">
