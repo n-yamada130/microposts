@@ -1,0 +1,6 @@
+<%= form_for(current_user.favorites.find_by(micropost_id: micropost.id), html: { method: :delete }, remote: true) do |f| %>
+    <div><%= hidden_field_tag :favpost_id, micropost.id %></div>
+    <%= button_tag :type => "submit", :class =>"btn btn-default" do %>
+        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+    <% end %>
+<% end %>

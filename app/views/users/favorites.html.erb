@@ -1,0 +1,6 @@
+<h3><%= @user.name %>'s Favorite Micropost</h3>
+<% if @microposts.any? %>
+    <ol class="microposts">
+        <%= render @microposts %>
+    </ol>
+<% end %>

@@ -6,6 +6,15 @@
         Posted <%= time_ago_in_words(micropost.created_at) %> ago.
         <% if current_user == micropost.user %>
             <%= link_to "delete", micropost, method: :delete, data: { confirm: "You sure?" } %>
+        <% else %>
+            <div id="fav_form-<%= micropost.id %>">
+                <% if current_user.favorited?(micropost) %>
+                    <%= render 'users/unfavorite', micropost: micropost %>
+                <% else %>
+                    <%= render 'users/favorite', micropost: micropost %>
+                <% end %>
+            </div>
+            <%#= render 'fav_form', locals { micropost: micropost } %>
         <% end %>
     </span>
 </li>
