@@ -17,7 +17,9 @@
                      render partial: 'microposts/micropost', locals: { micropost: micropost }
                    end
                 %>
+                <%= page_entries_info @microposts %>
                 <%= render @microposts %>
+                <%= paginate @microposts %>
             </ol>
         <% end %>
     </div>
